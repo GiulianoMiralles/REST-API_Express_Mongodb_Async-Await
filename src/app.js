@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+const usersRoutes = require('../src/routes/users');
+
 mongoose.connect('mongodb://localhost/REST-API_Express_Mongodb_Async-Await',{
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -18,6 +20,12 @@ app.set('port', process.env.PORT || 3000); //verifica en mi sistema operativo si
 app.use(morgan('dev'));                 //Me permite ver por consolas todas las peticiones http que hago en mi servidor
 app.use(bodyParser.json());             //Me permite leer los formatos json que llegan a mi servidor
 
+
+//Routes
+app.use('/users', usersRoutes);
+//Static files
+
+//error handlers
 
 //Start the server
 app.listen(app.get('port'), () =>{
