@@ -2,13 +2,13 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    firstNanme: String,
+    firstName: String,
     lastName: String,
     email: String,
-    cars: ({
+    cars: {
         type:Schema.Types.ObjectId,
         ref: 'car'
-    }),
+    },
 });
 
 module.exports = mongoose.model('user', userSchema);
