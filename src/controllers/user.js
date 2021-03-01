@@ -31,6 +31,12 @@ module.exports = { //callback promise listenign async await method async
         const newUser = req.body;
         const oldUser = await User.findByIdAndUpdate(userId, newUser);
         res.status(200).json({ success: true });
-    }
+    },
+
+    deleteUser: async (req, res, next) => { //replace one or more fields PATCH http method
+        const { userId } = req.params;
+        const oldUser = await User.findByIdAndRemove(userId);
+        res.status(200).json({ success: true });
+    },
 
 };
