@@ -14,11 +14,11 @@ mongoose.connect('mongodb://localhost/REST-API_Express_Mongodb_Async-Await',{
     .catch(err => console.log(err));
 
 //settings
-app.set('port', process.env.PORT || 3000); //verifica en mi sistema operativo si hay algun recurso que ya ste usando el puerto 3000 si no es asi lo ocupara mi aplicacion
+app.set('port', process.env.PORT || 3000); // check in my operating system if there is any resource that is already using port 3000 if not, it will be used by my application
 
 //middleware
-app.use(morgan('dev'));                 //Me permite ver por consolas todas las peticiones http que hago en mi servidor
-app.use(bodyParser.json());             //Me permite leer los formatos json que llegan a mi servidor
+app.use(morgan('dev'));                 // It allows me to see all the http requests that I make on my server through consoles
+app.use(bodyParser.json());             // It allows me to read the json formats that reach my server
 
 
 //Routes

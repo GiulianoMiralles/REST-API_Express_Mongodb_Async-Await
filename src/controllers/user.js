@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const Car = require('../models/car');
 
-module.exports = { //callback promise listenign async await method async
+module.exports = { //callback promise listenign || async await method
 
     index: async (req, res, next) => { //function async
         const users = await User.find({});//query async
@@ -42,7 +42,7 @@ module.exports = { //callback promise listenign async await method async
 
     getUsersCars: async (req, res, next) => {
         const { userId } = req.params;
-        const user = await (await User.findById(userId)).populated('cars');
+        const user = (await User.findById(userId)).populated('cars');
         res.status(200).json(user);
     },
 
